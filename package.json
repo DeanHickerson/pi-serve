@@ -1,0 +1,29 @@
+{
+  "name": "pi-serve",
+  "version": "1.0.0",
+  "description": "A nodejs RPI server and site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeanHickerson/pi-serve.git"
+  },
+  "keywords": [
+    "server",
+    "rpi"
+  ],
+  "author": "Dean Hickerson",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/DeanHickerson/pi-serve/issues"
+  },
+  "homepage": "https://github.com/DeanHickerson/pi-serve#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  }
+}

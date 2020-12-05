@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+// The line above allows us to setup as a service on linux
 require('dotenv').config();
 const express = require('express');
 const fetch = require('node-fetch');

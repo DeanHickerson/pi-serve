@@ -10,9 +10,14 @@ const PORT = process.env.PORT || 80;
 const app = express();
 
 app.use(cors());
+// cors() will be set to allow "*" by default
 app.use(express.static('public'));
 app.use(express.json());
+// express.json() will explicitly require POST requests to have headers set
+// with 'Content-Type':'application/json' and the body will need to be in JSON format
+// example: fetch('localhost',{method:'POST',headers:{'Content-Type':'application/json'}})
 
+// send something like: fetch('localhost',{method:'POST',headers:{'Content-Type':'application/json'},body:{msg:'my message'}})
 app.post('/api', (req,res) => {
 	console.log(req.body);
 	req.body.serve = 'we got it!';

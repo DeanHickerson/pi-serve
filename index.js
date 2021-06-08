@@ -6,11 +6,12 @@ const fetch = require('node-fetch');
 const os = require('os');
 const cors = require('cors');
 const PORT = process.env.PORT || 80;
+const {check, validationResult} = require('express-validator');
 
 const app = express();
 
-app.use(cors());
 // cors() will be set to allow "*" by default
+app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 // express.json() will explicitly require POST requests to have headers set
@@ -25,7 +26,9 @@ app.post('/api', (req,res) => {
 });
 
 // send something like /api?name=dean
-app.get('/api', (req,res) => {
+// Leverage some validation/sanitization with check('*').esacpe()
+// The wildcard means we want to check (sanitize) ALL query params
+app.get('/api', check('*').escape().trim(), (req,res) => {
 	if(req.query) {
 		console.log(req.query);
 		if(req.query.name) {
